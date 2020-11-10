@@ -1,29 +1,29 @@
 package com.vemaki.appescola.resources;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vemaki.appescola.domain.Disciplina;
+import com.vemaki.appescola.services.DisciplinaService;
 
 @RestController
 @RequestMapping(value="/disciplinas")
 public class DisciplinaResource {
 	
-	@RequestMapping(method=RequestMethod.GET)
-	public List<Disciplina> listar() {
+	
+	@Autowired
+	private DisciplinaService service;
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	public ResponseEntity<?> find(@PathVariable Integer id) {
+		Disciplina obj = service.find(id);
+		return ResponseEntity.ok().body(obj);
 		
-		Disciplina di1 = new Disciplina(1, "Português");
-		Disciplina di2 = new Disciplina(1, "Matemática");
 		
-		List<Disciplina> lista = new ArrayList<>();
-		lista.add(di1);
-		lista.add(di2);
-		
-		return lista;
 		
 		
 		
