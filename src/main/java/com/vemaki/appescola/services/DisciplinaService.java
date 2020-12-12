@@ -24,5 +24,8 @@ public class DisciplinaService {
 		return obj.orElse(null);
 		} 
 
-
+	public Disciplina insert(Disciplina obj) {
+		obj.setId(null);
+		return repo.save(obj);
+	}
 }
