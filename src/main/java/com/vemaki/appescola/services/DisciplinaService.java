@@ -1,5 +1,6 @@
 package com.vemaki.appescola.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,10 @@ public class DisciplinaService {
 	@Autowired
 	private DisciplinaRepository repo;
 	
+	
+	public List<Disciplina> findAll() {
+		return repo.findAll();
+	}
 	public Disciplina find(Integer id) {
 		 Optional<Disciplina> obj = repo.findById(id);
 		return obj.orElse(null);

@@ -25,8 +25,11 @@ public class AppescolaApplication implements CommandLineRunner  {
 		
 		Disciplina di1 = new Disciplina(null, "Português");
 		Disciplina di2 = new Disciplina(null, "Matemática");
-		
-		categoriaRepository.saveAll(Arrays.asList(di1, di2)); 
+		Disciplina di3 = new Disciplina(null, "Química");
+		Disciplina di4 = new Disciplina(null, "Fisica");
+		Disciplina di5 = new Disciplina(null, "Historia");
+		Disciplina di6 = new Disciplina(null, "Geografia");
+		categoriaRepository.saveAll(Arrays.asList(di1, di2, di3, di4, di5, di6)); 
 		
 	}
 
