@@ -45,5 +45,10 @@ public class DisciplinaResource {
 		return ResponseEntity.created(uri).build();
 	}
 	
-
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> insert(@RequestBody Disciplina obj, @PathVariable Integer id){
+		obj.setId(id);
+		obj = service.update(obj);
+		return ResponseEntity.noContent().build();
+	}
 }

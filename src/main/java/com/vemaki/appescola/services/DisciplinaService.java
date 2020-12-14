@@ -28,4 +28,8 @@ public class DisciplinaService {
 		obj.setId(null);
 		return repo.save(obj);
 	}
+	public Disciplina update(Disciplina obj) {
+		find(obj.getId());
+		return repo.save(obj);
+	}
 }
